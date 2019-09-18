@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SuperEsl.com</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRANDY</title>
+<!-- Google Font -->
+<link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800'rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<!-- Preloader -->
+<link rel="stylesheet" href="css/preloader.css" type="text/css"media="screen, print" />
+
+<!-- Icon Font-->
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/owl.theme.default.css">
+
+<!-- Animate CSS-->
+<link rel="stylesheet" href="css/animate.css">
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Style -->
+<link href="css/style.css" rel="stylesheet">
+
+<!-- Responsive CSS -->
+<link href="css/responsive.css" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="js/lte-ie7.js"></script>
+	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+<script src="../js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("#submit").click(function() {
+		if (confirm("Do you want to save the information ?")) {
+			$("#myemployerinsert").submit();
+		} else {
+			alert("It wasn't save properly. Please input all the information correctly.");
+			return false;
+		}
+		
+		if ($.trim($('#cname').val()) == "") {
+			alert("기관명을 입력하세요.");
+			$("#cname").focus();
+			return false;
+		}
+		if ($.trim($('#name').val()) == "") {
+			alert("담당자 이름을 입력하세요.");
+			$("#name").focus();
+			return false;
+		}
+		if ($.trim($('#phone').val()) == "") {
+			alert("The Phone No field is required.");
+			$("#phone").focus();
+			return false;
+		}
+		if ($.trim($('#phone').val()) == "") {
+			alert("연락 가능한 전화번호를 입력하세요.");
+			$("#phone").focus();
+			return false;
+		}
+		if ($.trim($('#address').val()) == "") {
+			alert("주소를 입력하세요.");
+			$("#address").focus();
+			return false;
+		}
+		if ($.trim($('#email').val()) == "") {
+			alert("이메일을 입력하세요.");
+			$("#email").focus();
+			return false;
+		}
+	});
+	
+	jQuery.fn.specialCharacter = function(){
+		var chktext = /[`''\"]/gi;
+			$(this).keydown(function(e){
+			if(chktext.test($(this).val())){
+				alert("This symbol ( '', '' , ` ) you can not enter");
+				$(this).val($(this).val().replace(/[ \{\}\[\]\/?;:|\)*`!^\_+┼<>#$%&\'\"\\\(\=]/gi,""));
+			}
+		}).keyup(function(e){
+			if(chktext.test($(this).val())){
+				alert("This symbol ( '' , ' , ` ) you can not enter");
+				$(this).val($(this).val().replace(/[ \{\}\[\]\/?;:|\)*`!^\_+┼<>#$%&\'\"\\\(\=]/gi,""));
+			}
+		});
+	};
+
+	$("#cname").specialCharacter();
+	$("#name").specialCharacter();
+	$("#phone").specialCharacter();
+	$("#address").specialCharacter();
+	$("#email").specialCharacter();
+	$("#teachernum").specialCharacter();
+	$("#startdate").specialCharacter();
+	$("#t_group").specialCharacter();
+	$("#t_time").specialCharacter();
+	$("#t_pay_min").specialCharacter();
+	$("#add1").specialCharacter();
+	$("#add2").specialCharacter();
+	$("#add3").specialCharacter();
+	$("#add4").specialCharacter();
+	$("#add5").specialCharacter();
+});
+
+</script>
+</head>
+<body>
+<div id="preloader">
+	<div id="status">&nbsp;</div>
+</div>
+<header id="" style="background-position: 50% -125px;">
+	<div class="section_overlay">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/index.html" style="margin-top: -29px;">
+						<img src="images/logo02.png" style="width: 250px; height: 200px;" alt="">
+					</a>
+				</div>
+	
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/application.html">The Application Procedure</a></li>
+						<li><a href="/teaching.html">Teaching / Living in Korea</a></li>
+						<li><a href="/apply.html">Apply</a></li>
+						<li><a href="/company.html">강사구인 / for schools</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	</section> 
+</header>
+<section class="about_us_area" id="">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="about_title">
+					<h2>학원 전용 페이지</h2>
+					<img src="images/shape.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6  wow fadeInLeft animated">
+				<div class="single_progress_bar">
+					<h2> <strong>주 소 </strong> : 경기도 용인시 수지구 신수로 767 U타워 B 1228  우편번호 16827</h2>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+							<span class="sr-only">60% Complete</span>
+						</div>
+					</div>
+				</div>
+				<div class="single_progress_bar">
+					<h2><strong>E-mail</strong> : supereslrecruitment@gmail.com</h2>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+							<span class="sr-only">60% Complete</span>
+						</div>
+					</div>
+				</div>
+				<div class="single_progress_bar">
+					<h2><strong>전화번호</strong> : 010-2244-6785 </h2>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
+							<span class="sr-only">60% Complete</span>
+						</div>
+					</div>
+				</div>
+				<div class="single_progress_bar">
+					<h2><strong>사업자 등록 번호</strong> : 694 – 96 – 00356 </h2>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
+							<span class="sr-only">60% Complete</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6  wow fadeInRight animated">
+				<label><i class="fa fa-user" aria-hidden="true"></i>&nbsp; 임무 : 우리가 하는일 </label>
+				<p class="about_us_p">
+				<strong>Superesl Recruitment</strong>는 대한민국의 학원과 학교에서 학생들이 양질의 영어 교육을 받을 수 있도록 하는데 힘쓰는 것을 임무로 합니다.  
+					영어선생님으로 한국에 취업이 가능한 7개국 나라에서 선별된 선생님들을 본인들에게 가장 적절한 곳에서 일 할 수 있도록 하며 한국 학생들에게 외국어 실력을 향상 시키는데 기여하도록 합니다.  
+				</p>
+				<br>
+				<br>
+				<label><i class="fa fa-user" aria-hidden="true"></i>&nbsp; 비전 : 우리가 이 일을 하는 이유 </label>
+				<p class="about_us_p">
+			              우리가 이 일을 하는 이유 
+			              우리는 자라나는 아이들의 미래를 위해 일합니다. 아이들이 받는 교육에서
+			              서 빠질 수 없는 영어교육을 외국인 선생님을 통해 실현 할 뿐 아니라 
+			              더 넓고 큰 세상을 볼 수 있기를 바랍니다. 
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="services" id="">
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="about_title">
+					<h2>Super ESL 채용절차 및 서비스</h2>
+					<img src="images/shape.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="height:100px;"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 text-center">
+                <div class="single_service wow fadeInUp" data-wow-delay="1s">
+                    <i class="icon-pencil"></i>
+                    <h2 style="font-size: 25px;"><strong>STEP 1</strong></h2>
+                    <!-- <img src="images/cnt1.png" style="width: 50px;" height="50px;"> -->
+                    <h2>채용의뢰 학원 정보 제공</h2>
+                    <img src="images/img0.png">
+                </div>
+            </div>
+            <div class="col-md-2 text-center">
+                <div class="single_service wow fadeInUp" data-wow-delay="2s">
+                    <i class="icon-gears"></i>
+                    <h2 style="font-size: 25px;"><strong>STEP 2</strong></h2>
+                    <h2>원어민 매칭 </h2>
+                    <br>
+                    <img src="images/img9.png">
+                </div>
+            </div>
+            <div class="col-md-2 text-center">
+                <div class="single_service wow fadeInUp" data-wow-delay="3s">
+                    <i class="icon-camera"></i>
+                    <h2 style="font-size: 25px;"><strong>STEP 3</strong></h2>
+                    <h2>선생님 소개 및 이력서 검토 </h2>
+                    <img src="images/img11.png">
+                </div>
+            </div>
+            <div class="col-md-2 text-center">
+                <div class="single_service wow fadeInUp" data-wow-delay="4s">
+                    <i class="icon-magnifying-glass"></i>
+                    <h2 style="font-size: 25px;"><strong>STEP 4</strong></h2>
+                    <h2>계약서 검토 및 사인 </h2>
+                     <img src="images/img5.png">
+                </div>
+            </div>
+            <div class="col-md-2 text-center">
+                <div class="single_service wow fadeInUp" data-wow-delay="4s">
+                    <i class="icon-magnifying-glass"></i>
+                    <h2 style="font-size: 25px;"><strong>STEP 5</strong></h2>
+                    <h2>비자 절차 진행 </h2>
+                     <br>
+                    <img src="images/img3.png">
+                </div>
+            </div>
+            <div class="col-md-2 text-center">
+                <div class="single_service wow fadeInUp" data-wow-delay="4s">
+                    <i class="icon-magnifying-glass"></i>
+                    <h2 style="font-size: 25px;"><strong>STEP 6</strong></h2>
+                    <h2>선생님 한국 <br>도착</h2>
+                    <img src="images/img6.png">
+                </div>
+            </div>
+        </div>            
+    </div>
+</section>
+<div style="height:100px;"></div>
+<section class="about_us_area" id="ABOUT">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="about_title">
+					<h2>강사 요청</h2>
+					<img src="images/shape.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <link href="../sub/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="../sub/css/clean-blog.min.css" rel="stylesheet">
+	<link href="../../css/style.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="../sub/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <!-- Main Content -->
+    <form id="myresumeinsert" action="/myresumeinsert" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row" style="font-family: 'Lora', serif;">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>기관명 (학원 / 기관)</label>
+                         <input type="text" class="form-control" placeholder="기관명" id="cname" name="cname" required data-validation-required-message="기관명을 입력해 주세요." maxlength="30">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>담당자 </label>
+                         <input type="text" class="form-control" placeholder="담당자" id="name" name="name" required data-validation-required-message="담당자 명을 입력해 주세요." maxlength="50">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>담당자 전화번호</label>
+                         <input type="tel" class="form-control" placeholder="담당자 전화번호" id="phone" name="phone" required data-validation-required-message="전화번호를 입력해 주세요." maxlength="100">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>주소</label>
+                         <input type="text" class="form-control" placeholder="주소" id="address" name="address" required data-validation-required-message="주소를입력해 주세요." maxlength="60">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>E-mail</label>
+                         <input type="email" class="form-control" placeholder="E-mail" id="email" name="email" required data-validation-required-message="E-mail을 입력해 주세요" maxlength="40">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <p>구인 강사 수</p>
+                         1명<input type="radio" id="teachernum" name="teachernum" value="1" checked="checked">&nbsp;&nbsp;&nbsp;
+                         2명<input type="radio" id="teachernum" name="teachernum" value="2">&nbsp;&nbsp;&nbsp;
+                         3명<input type="radio" id="teachernum" name="teachernum" value="3">&nbsp;&nbsp;&nbsp;
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>시작 일 </label>
+                         <input type="text" class="form-control" placeholder="시작 일 " id="startdate" name="startdate" required data-validation-required-message="시작일을 간략하게 입력해 주세요." maxlength="50">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <p>수업 대상</p>
+                                                         유치원 <input type="checkbox" id="t_group1" name="t_group1" value="1">&nbsp;&nbsp;&nbsp;
+	       				   초 등 <input type="checkbox" id="t_group2" name="t_group2" value="2">&nbsp;&nbsp;&nbsp;
+						   중 등 <input type="checkbox" id="t_group3" name="t_group3" value="3">&nbsp;&nbsp;&nbsp;
+						   성 인 <input type="checkbox" id="t_group4" name="t_group4" value="4">
+                     </div>
+                </div>
+				<div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <p>근무 시간</p>
+				                     오전 오후 <input type="radio" id="t_time" name="t_time" value="1" checked="checked">&nbsp;&nbsp;&nbsp;
+				                     오후 저녁 <input type="radio" id="t_time" name="t_time" value="2">&nbsp;&nbsp;&nbsp;
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <p>최저 급여</p>
+	                     2.0 <input type="radio" id="t_pay_min" name="t_pay_min" value="2.0" checked="checked">&nbsp;&nbsp;&nbsp;
+	                     2.1 <input type="radio" id="t_pay_min" name="t_pay_min" value="2.1">&nbsp;&nbsp;&nbsp;
+	                     2.2 <input type="radio" id="t_pay_min" name="t_pay_min" value="2.2">&nbsp;&nbsp;&nbsp;
+			             2.3 이상 <input type="radio" id="t_pay_min" name="t_pay_min" value="2.3">
+                     </div>
+                 </div>                    
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>4대 보험 제공 여부</label>
+                         <input type="text" class="form-control" placeholder="4대 보험 제공 여부" id="add1" name="add1" required data-validation-required-message="4대 보험 제공 여부를 입력해 주세요." maxlength="100">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <p>항공권 제공 여부</p>
+	                                               제공 안함 <input type="radio" id="add2" name="add2" value="1" checked="checked">&nbsp;&nbsp;&nbsp;
+	                     one way <input type="radio" id="add2" name="add2" value="2">&nbsp;&nbsp;&nbsp;
+	                     round way <input type="radio" id="add2" name="add2" value="3">
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <p>퇴직금 제공 여부</p>
+                         Yes <input type="radio" id="add3" name="add3" value="Y" checked="checked">&nbsp;&nbsp;&nbsp;
+	                     No <input type="radio" id="add3" name="add3" value="N">
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <p>숙소 제공 여부</p>
+                         <input type="hidden" id="add4" name="add4"/>
+                         Yes <input type="radio" id="add4" name="add4" value="1" checked="checked"/>&nbsp;&nbsp;&nbsp;
+	                     No <input type="radio" id="add4" name="add4" value="2"/>&nbsp;&nbsp;&nbsp;
+	                     Housing Allowance <input type="radio" id="add4" name="add4" value="3"/>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <p>휴가 일 수 </p>
+                         7일 <input type="radio" id="hollyday" name="hollyday" value="7" checked="checked">&nbsp;&nbsp;&nbsp;
+	                     10일 <input type="radio" id="hollyday" name="hollyday" value="10">&nbsp;&nbsp;&nbsp;
+                         14일 <input type="radio" id="hollyday" name="hollyday" value="14">&nbsp;&nbsp;&nbsp;
+	                     20일 이상 <input type="radio" id="hollyday" name="hollyday" value="20">
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>특별한 희망 조건</label>
+                         <input type="text" class="form-control" placeholder="특별한 희망 조건" id="add5" name="add5" required data-validation-required-message="기타 특별히 희망 하시는 사항을 간략히 적어주세요 ." maxlength="100">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <p>기관 관련 자료 (File 첨부)</p>
+                         <input type="file" id="add6" name="add6" style="font-size: 12px;">
+                     </div>
+                 </div>
+                 <br>
+                 <div id="success"></div>
+                 <br>
+                 <br>
+                 <div class="row">
+                     <div class="form-group col-xs-12" align="right">
+                         <button type="submit" class="btn btn-default">보내기</button>
+                     </div>
+                 </div>
+                 <br>
+                 <br>
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript">
+	   
+	</script>
+
+    <!-- jQuery -->
+    <script src="sub/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="sub/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="sub/js/jqBootstrapValidation.js"></script>
+    <script src="sub/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="sub/js/clean-blog.min.js"></script>
+</body>
+
+</html>
+
+
+<footer>
+	<div class="container">
+		<div class="col-md-6 ">
+			<img src="images/SUPER02.png" style="width: 250px; height: 200px;" alt="">
+		</div>
+		<div class="col-md-6 ">
+			<div class="copyright_text   wow fadeInUp animated">
+				<p>
+					&copy; SuperEsl 2017.All Right Reserved By <a
+						href="#"
+						target="_blank">JM ™</a>
+				</p>
+				<p>Made with love for creative people.</p>
+				<br>
+				<br>
+				<div align="center">
+					<a type="button" href="/login/login.jsp" class="btn btn-primary cs-btn">Admin Member</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/script.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/jqBootstrapValidation.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SuperEsl.com</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRANDY</title>
+<!-- Google Font -->
+<link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800'rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<!-- Preloader -->
+<link rel="stylesheet" href="css/preloader.css" type="text/css"media="screen, print" />
+
+<!-- Icon Font-->
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/owl.theme.default.css">
+
+<!-- Animate CSS-->
+<link rel="stylesheet" href="css/animate.css">
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Style -->
+<link href="css/style.css" rel="stylesheet">
+
+<!-- Responsive CSS -->
+<link href="css/responsive.css" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="js/lte-ie7.js"></script>
+	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+<script src="../js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("#submit").click(function() {
+		if (confirm("Do you want to save the information ?")) {
+			$("#myemployerinsert").submit();
+		} else {
+			alert("It wasn't save properly. Please input all the information correctly.");
+			return false;
+		}
+		
+		if ($.trim($('#fullname').val()) == "") {
+			alert("TheName field is required.");
+			$("#fullname").focus();
+			return false;
+		}
+		if ($.trim($('#email').val()) == "") {
+			alert("The Email field is required.");
+			$("#email").focus();
+			return false;
+		}
+		if ($.trim($('#phone').val()) == "") {
+			alert("The Phone No field is required.");
+			$("#phone").focus();
+			return false;
+		}
+		if ($.trim($('#birth').val()) == "") {
+			alert("The Nationality field is required.");
+			$("#birth").focus();
+			return false;
+		}
+		if ($.trim($('#skype').val()) == "") {
+			alert("The Skype field is required.");
+			$("#skype").focus();
+			return false;
+		}
+		if ($.trim($('#experience').val()) == "") {
+			alert("The Experience field is required.");
+			$("#experience").focus();
+			return false;
+		}
+	});
+	
+	jQuery.fn.specialCharacter = function(){
+		var chktext = /[`''\"]/gi;
+			$(this).keydown(function(e){
+			if(chktext.test($(this).val())){
+				alert("This symbol ( '', '' , ` ) you can not enter");
+				$(this).val($(this).val().replace(/[ \{\}\[\]\/?;:|\)*`!^\_+┼<>#$%&\'\"\\\(\=]/gi,""));
+			}
+		}).keyup(function(e){
+			if(chktext.test($(this).val())){
+				alert("This symbol ( '' , ' , ` ) you can not enter");
+				$(this).val($(this).val().replace(/[ \{\}\[\]\/?;:|\)*`!^\_+┼<>#$%&\'\"\\\(\=]/gi,""));
+			}
+		});
+	};
+
+	$("#fullname").specialCharacter();
+	$("#email").specialCharacter();
+	$("#phone").specialCharacter();
+	$("#nationality").specialCharacter();
+	$("#birth").specialCharacter();
+	$("#skype").specialCharacter();
+	$("#experience").specialCharacter();
+	$("#startdate").specialCharacter();
+	$("#location").specialCharacter();
+	$("#agegroup").specialCharacter();
+	$("#requirements").specialCharacter();
+});
+
+function previewImage(targetObj, previewId) {
+	var preview = document.getElementById(previewId); //div id   
+	var ua = window.navigator.userAgent;
+	if (ua.indexOf("MSIE") > -1) {//ie일때
+		targetObj.select();
+		try {
+			var src = document.selection.createRange().text; // get file full path 
+			var ie_preview_error = document
+					.getElementById("ie_preview_error_" + previewId);
+			if (ie_preview_error) {
+				preview.removeChild(ie_preview_error); //error가 있으면 delete
+			}
+			var img = document.getElementById(previewId); //이미지가 뿌려질 곳 
+				img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+ src + "', sizingMethod='scale')";
+		} catch (e) {
+			if (!document.getElementById("ie_preview_error_" + previewId)) {
+			var info = document.createElement("<p>");
+			info.id = "ie_preview_error_" + previewId;
+			info.innerHTML = "a";
+			preview.insertBefore(info, null);
+			}
+		}
+	} else { //ie가 아닐때
+		var files = targetObj.files;
+		for (var i = 0; i < files.length; i++) {
+			var file = files[i];
+			var imageType = /image.*/; //이미지 파일일경우만.. 뿌려준다.
+			if (!file.type.match(imageType))
+				continue;
+			var prevImg = document.getElementById("prev_" + previewId); //이전에 미리보기가 있다면 삭제
+			if (prevImg) {
+				preview.removeChild(prevImg);
+			}
+			var img = document.createElement("img");
+			img.id = "prev_" + previewId;
+			img.classList.add("obj");
+			img.file = file;
+			img.style.width = '300px'; //기본설정된 div의 안에 뿌려지는 효과를 주기 위해서 div크기와 같은 크기를 지정해준다.
+			img.style.height = '150px';
+			preview.appendChild(img);
+			if (window.FileReader) { // FireFox, Chrome, Opera 확인.
+				var reader = new FileReader();
+				reader.onloadend = (function(aImg) {
+					return function(e) {
+						aImg.src = e.target.result;
+					};
+				})(img);
+				reader.readAsDataURL(file);
+			} else { // safari is not supported FileReader
+				//alert('not supported FileReader');
+				if (!document.getElementById("sfr_preview_error_"
+						+ previewId)) {
+					var info = document.createElement("p");
+					info.id = "sfr_preview_error_" + previewId;
+					info.innerHTML = "not supported FileReader";
+					preview.insertBefore(info, null);
+				}
+			}
+		}
+	}
+}
+</script>
+</head>
+<body>
+<div id="preloader">
+	<div id="status">&nbsp;</div>
+</div>
+<header id="" style="background-position: 50% -125px;">
+	<div class="section_overlay">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/index.jsp" style="margin-top: -29px;">
+						<img src="images/logo02.png" style="width: 250px; height: 200px;" alt="">
+					</a>
+				</div>
+	
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/application.jsp">The Application Procedure</a></li>
+						<li><a href="/teaching.jsp">Teaching / Living in Korea</a></li>
+						<li><a href="/apply.jsp">Apply</a></li>
+						<li><a href="/company.jsp">강사구인 / for schools</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	</section> 
+</header>
+
+<div style="height:100px;"></div>
+<section class="about_us_area" id="ABOUT">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<div class="about_title">
+					<h2>APPLY</h2>
+					<img src="images/shape.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <link href="../sub/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="../sub/css/clean-blog.min.css" rel="stylesheet">
+	<link href="../../css/style.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="../sub/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <!-- Main Content -->
+    <form id="myemployerinsert" action="/myemployerinsert" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row" style="font-family: 'Lora', serif;">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <select class="form-control" id="fullpart" name="fullpart">
+                         	<option value="Full Time">Full Time</option>
+                         	<option value="Part Time">Part Time</option>
+                         </select>
+                         <br>
+						<br>
+                     </div>
+                 </div>
+                 <div class="col-lg-4">
+					<span class="fa fa-star" style="color: red;"></span><label style="color: black;">Photo</label>
+					<span id="previewId">	
+						<input type="file" onchange="previewImage(this,'previewId')" id="photo" name="photo" style="font-size: 12px;">
+					</span>
+					<br>
+					<br>
+				</div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Full Name (EXACTLY as listed on passport)</label>
+                         <input type="text" class="form-control" placeholder="Name" id="fullname" name="fullname" required data-validation-required-message="Please enter your name." maxlength="20">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Email</label>
+                         <input type="email" class="form-control" placeholder="Email Address" id="email" name="email" required data-validation-required-message="Please enter your email address." maxlength="40">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Phone Number</label>
+                         <input type="tel" class="form-control" placeholder="Phone Number" id="phone" name="phone" required data-validation-required-message="Please enter your phone number." maxlength="15">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Nationality</label>
+                         <input type="tel" class="form-control" placeholder="Nationality" id="nationality" name="nationality" required data-validation-required-message="Please enter your Nationality." maxlength="30">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Date of Birth (YYYY/MM/DD)</label>
+                         <input type="tel" class="form-control" placeholder="Date of Birth" id="birth" name="birth" required data-validation-required-message="(YYYY/MM/DD)" maxlength="10">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Skype ID</label>
+                         <input type="tel" class="form-control" placeholder="Skype ID" id="skype" name="skype" required data-validation-required-message="Please enter your." maxlength="20">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Teaching Experience</label>
+                         <input type="tel" class="form-control" placeholder="Teaching Experience" id="experience" name="experience" required data-validation-required-message="Please enter your Teaching Experience." maxlength="100">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Available Starting date </label>
+                         <input type="tel" class="form-control" placeholder="Available Starting date" id="startdate" name="startdate" required data-validation-required-message="Please enter your Available Starting date ." maxlength="50">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+				<div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Preferred location</label>
+                         <input type="tel" class="form-control" placeholder="Preferred location" id="location" name="location" required data-validation-required-message="Please enter your Preferred location." maxlength="30">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Preferred age groups</label>
+                         <input type="tel" class="form-control" placeholder="Preferred age groups" id="agegroup" name="agegroup" required data-validation-required-message="Please enter your Preferred age groups."  maxlength="50">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>                    
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                         <label>Additional Requirements</label>
+                         <input type="tel" class="form-control" placeholder="Additional Requirements" id="requirements" name="requirements" required data-validation-required-message="Please enter Additional Requirements" maxlength="100">
+                         <p class="help-block text-danger"></p>
+                     </div>
+                 </div>
+                 <br>
+                 <div class="row control-group">
+                     <div class="form-group col-xs-12 floating-label-form-group controls">
+                  		<div class="col-md-6">
+	                  		<p>Resume</p>
+	                  		<input type="file" onchange="previewImage(this,'previewId')" id="resume" name="resume" style="font-size: 12px;">
+						    <br>
+						    <br>
+						    <p>Apostilled CRC</p>
+						    <input type="file" onchange="previewImage(this,'previewId')" id="crc" name="crc" style="font-size: 12px;">
+						    <br>
+						    <br>
+					    </div>
+					    <div class="col-md-6">
+						    <p>Apostilled diploma</p>
+						    <input type="file" onchange="previewImage(this,'previewId')" id="diploma" name="diploma" style="font-size: 12px;">
+						    <br>
+						    <br>
+						    <p>Copy of passport</p>
+						    <input type="file" onchange="previewImage(this,'previewId')" id="passport" name="passport" style="font-size: 12px;">
+						    <br>
+						    <br>
+					    </div>
+	                </div>
+                 </div>
+                 <div id="success"></div>
+                 <br>
+                 <br>
+                 <div class="row">
+                     <div class="form-group col-xs-12" align="right">
+                         <button type="submit" class="btn btn-default">Apply</button>
+                     </div>
+                 </div>
+                 <br>
+                 <br>
+            </div>
+        </div>
+    </div>
+    </form>
+
+    <!-- jQuery -->
+    <script src="sub/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="sub/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="sub/js/jqBootstrapValidation.js"></script>
+    <script src="sub/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="sub/js/clean-blog.min.js"></script>
+</body>
+
+</html>
+
+
+<footer>
+	<div class="container">
+		<div class="col-md-6" style="margin-top: 20px;">
+			<img src="images/SUPER02.png" style="  width: 250px; height: 200px;" alt="">
+		</div>
+		<div class="col-md-6 ">
+			<div class="copyright_text   wow fadeInUp animated">
+				<p>
+					&copy; SuperEsl 2017.All Right Reserved By <a
+						href="#"
+						target="_blank">JM ™</a>
+				</p>
+				<p>Made with love for creative people.</p>
+				<br>
+				<br>
+				<div align="center">
+					<a type="button" href="/login/login.jsp" class="btn btn-primary cs-btn">Admin Member</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/script.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/jqBootstrapValidation.js"></script>
+
+</body>
+</html>
