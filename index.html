@@ -1,128 +1,130 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SuperEsl.com</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Google Font -->
-<link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800'rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>SuperEsl.com</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Font -->
+    <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-<!-- Preloader -->
-<link rel="stylesheet" href="css/preloader.css" type="text/css"media="screen, print" />
+    <!-- Preloader -->
+    <link rel="stylesheet" href="css/preloader.css" type="text/css" media="screen, print" />
 
-<!-- Icon Font-->
-<link rel="stylesheet" href="css/owl.carousel.css">
-<link rel="stylesheet" href="css/owl.theme.default.css">
+    <!-- Icon Font-->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.default.css">
 
-<!-- Animate CSS-->
-<link rel="stylesheet" href="css/animate.css">
+    <!-- Animate CSS-->
+    <link rel="stylesheet" href="css/animate.css">
 
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Style -->
-<link href="css/style.css" rel="stylesheet">
+    <!-- Style -->
+    <link href="css/style.css" rel="stylesheet">
 
-<!-- Responsive CSS -->
-<link href="css/responsive.css" rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
+    <!-- Responsive CSS -->
+    <link href="css/responsive.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
         <script src="js/lte-ie7.js"></script>
 	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<script src="js/jquery.js"></script>
-<script type="text/javascript">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript">
 
-$(document).ready(function(){
-	
-	$("#submit").click(function() {
-		if ($.trim($('#name').val()) == "") {
-			alert("Name field is required.");
-			$("#name").focus();
-			return false;
-		}
-		if ($.trim($('#email').val()) == "") {
-			alert("E-mail field is required.");
-			$("#email").focus();
-			return false;
-		}
-		if ($.trim($('#message').val()) == "") {
-			alert("Message field is required.");
-			$("#message").focus();
-			return false;
-		}
-	});
-	
-	jQuery.fn.specialCharacter = function(){
-		var chktext = /[`''\"]/gi;
-			$(this).keydown(function(e){
-			if(chktext.test($(this).val())){
-				alert("This symbol ( '', '' , ` ) you can not enter");
-				$(this).val($(this).val().replace(/[ \{\}\[\]\/?;:|\)*`!^\_+┼<>#$%&\'\"\\\(\=]/gi,""));
-			}
-		}).keyup(function(e){
-			if(chktext.test($(this).val())){
-				alert("This symbol ( '' , ' , ` ) you can not enter");
-				$(this).val($(this).val().replace(/[ \{\}\[\]\/?;:|\)*`!^\_+┼<>#$%&\'\"\\\(\=]/gi,""));
-			}
-		});
-	};
+        $(document).ready(function () {
 
-	$("#name").specialCharacter();
-	$("#email").specialCharacter();
-	$("#subject").specialCharacter();
-	$("#message").specialCharacter();
-});	
+            $("#submit").click(function () {
+                if ($.trim($('#name').val()) == "") {
+                    alert("Name field is required.");
+                    $("#name").focus();
+                    return false;
+                }
+                if ($.trim($('#email').val()) == "") {
+                    alert("E-mail field is required.");
+                    $("#email").focus();
+                    return false;
+                }
+                if ($.trim($('#message').val()) == "") {
+                    alert("Message field is required.");
+                    $("#message").focus();
+                    return false;
+                }
+            });
 
-</script>
+            jQuery.fn.specialCharacter = function () {
+                var chktext = /[`''\"]/gi;
+                $(this).keydown(function (e) {
+                    if (chktext.test($(this).val())) {
+                        alert("This symbol ( '', '' , ` ) you can not enter");
+                        $(this).val($(this).val().replace(/[ \{\}\[\]\/?;:|\)*`!^\_+┼<>#$%&\'\"\\\(\=]/gi, ""));
+                    }
+                }).keyup(function (e) {
+                    if (chktext.test($(this).val())) {
+                        alert("This symbol ( '' , ' , ` ) you can not enter");
+                        $(this).val($(this).val().replace(/[ \{\}\[\]\/?;:|\)*`!^\_+┼<>#$%&\'\"\\\(\=]/gi, ""));
+                    }
+                });
+            };
+
+            $("#name").specialCharacter();
+            $("#email").specialCharacter();
+            $("#subject").specialCharacter();
+            $("#message").specialCharacter();
+        });
+
+    </script>
 </head>
-<body>
-<div id="preloader">
-	<div id="status">&nbsp;</div>
-</div>
 
-<header id="HOME" style="background-position: 50%;">
-	<div class="section_overlay">
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span> 
-						<span class="icon-bar"></span> 
-						<span class="icon-bar"></span> 
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="/index.html" style="margin-top: -29px;">
-						<img src="images/logo02.png" style="width: 250px; height: 200px;" alt="">
-					</a>
-				</div>
-	
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#ABOUT">About</a></li>
-						<li><a href="#CONTACT">Contact Us</a></li>
-						<li><a href="/application.html">The Application Procedure</a></li>
-						<li><a href="/teaching.html">Teaching / Living in Korea</a></li>
-						<li><a href="/apply.html">Apply</a></li>
-						<li><a href="/company.html">강사구인 / for schools</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12" align="center">
-					<img class="img-responsive" src="images/ttttt.jpg" style="margin-top: 50PX;">
-					<!-- 
+<body>
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
+    <header id="HOME" style="background-position: 50%;">
+        <div class="section_overlay">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/index.html" style="margin-top: -29px;">
+                            <img src="images/logo02.png" style="width: 250px; height: 200px;" alt="">
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#ABOUT">About</a></li>
+                            <li><a href="#CONTACT">Contact Us</a></li>
+                            <li><a href="/application.html">The Application Procedure</a></li>
+                            <li><a href="/teaching.html">Teaching / Living in Korea</a></li>
+                            <li><a href="/apply.html">Apply</a></li>
+                            <li><a href="/company.html">강사구인 / for schools</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" align="center">
+                        <img class="img-responsive" src="images/ttttt.jpg" style="margin-top: 50PX;">
+                        <!-- 
 					<div class="home_text wow">
 					<style>
 					#video { 
@@ -142,108 +144,115 @@ $(document).ready(function(){
 					</video>
 					</div> 
 					-->
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
-<section class="services" style="margin-top: 60px;">
-	<div class="container">
-		<div class="row">
-			<a href="/apply.jsp">
-				<div class="col-md-4 text-center">
-					<div class="single_service wow fadeInUp" data-wow-delay="1s">
-						<i class="icon-pencil"></i>
-						<h2>APPLY</h2>
-						<p>To apply teaching jobs in Korea.</p>
-					</div>
-				</div>
-			</a>
-			<a href="https://www.facebook.com/superesl" target="_blank">
-				<div class="col-md-4 text-center">
-					<div class="single_service wow fadeInUp" data-wow-delay="2s">
-						<h2><i class="fa fa-facebook-official" aria-hidden="true" style="color: black;"></i> facebook</h2>
-						<p>Full time & Part time jobs.</p>
-					</div>
-				</div>
-			</a>
-			<div class="col-md-4 text-center">
-				<div class="single_service wow fadeInUp" data-wow-delay="3s">
-					<i class="icon-camera"></i>
-					<h2>Contact Us</h2>
-					<p>
-						<!-- <i class="fa fa-phone" style="color: black;"></i>&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp; 0 7 0 - 4 0 0 6 - 2 1 2 0   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="services" style="margin-top: 60px;">
+        <div class="container">
+            <div class="row">
+                <a href="/apply.jsp">
+                    <div class="col-md-4 text-center">
+                        <div class="single_service wow fadeInUp" data-wow-delay="1s">
+                            <i class="icon-pencil"></i>
+                            <h2>APPLY</h2>
+                            <p>To apply teaching jobs in Korea.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.facebook.com/superesl" target="_blank">
+                    <div class="col-md-4 text-center">
+                        <div class="single_service wow fadeInUp" data-wow-delay="2s">
+                            <h2><i class="fa fa-facebook-official" aria-hidden="true" style="color: black;"></i>
+                                facebook</h2>
+                            <p>Full time & Part time jobs.</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="col-md-4 text-center">
+                    <div class="single_service wow fadeInUp" data-wow-delay="3s">
+                        <i class="icon-camera"></i>
+                        <h2>Contact Us</h2>
+                        <p>
+                            <!-- <i class="fa fa-phone" style="color: black;"></i>&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp; 0 7 0 - 4 0 0 6 - 2 1 2 0   
 						<br>
 						<i class="fa fa-phone" style="color: black;"></i>&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp; + 8 2 &nbsp; 3 1 - 7 7 8- 6 8 7 9 
 						<br>
 						<i class="fa fa-skype" style="color: black;"></i>&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c h l o e . p a r k 3 4 3 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<br>  -->
-						<i class="fa fa-phone" style="color: black;"></i> : &nbsp; +82)31-778-6879 <span style="color: #f9576e;">/</span> 070-4006-2120
-						<br> 
-						<i class="fa fa-envelope-o" style="color: black;"></i> : &nbsp;&nbsp;&nbsp;supereslrecruitment@gmail.com
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+                            <i class="fa fa-phone" style="color: black;"></i> : &nbsp; +82)31-778-6879 <span
+                                style="color: #f9576e;">/</span> 070-4006-2120
+                            <br>
+                            <i class="fa fa-envelope-o" style="color: black;"></i> :
+                            &nbsp;&nbsp;&nbsp;supereslrecruitment@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="about_us_area" id="ABOUT">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 text-center">
-				<div class="about_title">
-					<h2>About Us</h2>
-					<img src="images/shape.png" alt="">
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6  wow fadeInLeft animated">
-				<div class="single_progress_bar">
-					<h2> <strong>Address</strong> : U Tower B 1228 , Sinsuro 767 , Sujigu Yonginsi , Gyeonggido  Zip code : 16827</h2>
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-							<span class="sr-only">60% Complete</span>
-						</div>
-					</div>
-				</div>
-				<div class="single_progress_bar">
-					<h2><strong>E-mail</strong> : supereslrecruitment@gmail.com</h2>
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-							<span class="sr-only">60% Complete</span>
-						</div>
-					</div>
-				</div>
-				<div class="single_progress_bar">
-					<h2><strong>Business Registration number</strong> : 694 – 96 – 00356 </h2>
-					<div class="progress">
-						<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-							<span class="sr-only">60% Complete</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6  wow fadeInRight animated">
-				<p class="about_us_p">
-				SUPER ESL recruiting strives to connect highly motivated, passionate and creative 
-				teachers with the best teaching institutions in South Korea.  SUPER ESL is a government
-				 licensed company and does not charge a fee for teachers  
-				We only offer the highest quality personalized service for our teachers! 
-				We will help guide you through the process of finding the best fit for your time here in Korea.
-				SUPER ESL recruiting only collaborates with the most reputable schools and 
-				institutions so you can be assured of definite conditions and contracts! 
+    <section class="about_us_area" id="ABOUT">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="about_title">
+                        <h2>About Us</h2>
+                        <img src="images/shape.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6  wow fadeInLeft animated">
+                    <div class="single_progress_bar">
+                        <h2> <strong>Address</strong> : U Tower B 1228 , Sinsuro 767 , Sujigu Yonginsi , Gyeonggido Zip
+                            code : 16827</h2>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 90%;">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_progress_bar">
+                        <h2><strong>E-mail</strong> : supereslrecruitment@gmail.com</h2>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single_progress_bar">
+                        <h2><strong>Business Registration number</strong> : 694 – 96 – 00356 </h2>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 75%;">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6  wow fadeInRight animated">
+                    <p class="about_us_p">
+                        SUPER ESL recruiting strives to connect highly motivated, passionate and creative
+                        teachers with the best teaching institutions in South Korea. SUPER ESL is a government
+                        licensed company and does not charge a fee for teachers
+                        We only offer the highest quality personalized service for our teachers!
+                        We will help guide you through the process of finding the best fit for your time here in Korea.
+                        SUPER ESL recruiting only collaborates with the most reputable schools and
+                        institutions so you can be assured of definite conditions and contracts!
 
-				</p>
-			</div>
-		</div>
-	</div>
-</section>
-<div style="height: 100px;"></div>
-<!-- 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div style="height: 100px;"></div>
+    <!-- 
 <section class="testimonial text-center wow fadeInUp animated" id="">
 	<div class="container">
 		<div class="icon">
@@ -268,76 +277,81 @@ $(document).ready(function(){
 		</div>
 	</div>
 </section> -->
-<section class="contact" id="CONTACT">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div class="contact_title  wow fadeInUp animated">
-                    <h1>Contact Us</h1>
-                    <img src="images/shape.png" alt="">
-                    <p>If you have any questions about visa / hiring process, feel free to message us. We will answer you as soon as possible.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12  wow fadeInRight animated">
-                <form class="contact-form" id="contactusInsert" action="/contactusInsert" method="post">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" maxlength="30">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" maxlength="30">
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" maxlength="40">                                
-                        </div>
-                        <div class="col-md-6">
-                            <textarea class="form-control" id="message" name="message" rows="25" cols="10" placeholder="Message Texts..." maxlength="150"></textarea>
-                            <button type="submit" id="submit" class="btn btn-default submit-btn form_submit">SEND MESSAGE</button>                                
-                        </div>
+    <section class="contact" id="CONTACT">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="contact_title  wow fadeInUp animated">
+                        <h1>Contact Us</h1>
+                        <img src="images/shape.png" alt="">
+                        <p>If you have any questions about visa / hiring process, feel free to message us. We will
+                            answer you as soon as possible.</p>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div class="work-with   wow fadeInUp animated">
-                    <h3>looking forward to hearing from you!</h3>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<footer>
-	<div class="container">
-		<div class="col-md-6 ">
-			<img src="images/SUPER02.png" style="width: 250px; height: 200px;" alt="">
-		</div>
-		<div class="col-md-6 ">
-			<div class="copyright_text   wow fadeInUp animated">
-				<p>
-					&copy; SuperEsl 2017.All Right Reserved By <a
-						href="#"
-						target="_blank">JM ™</a>
-				</p>
-				<p>Made with love for creative people.</p>
-				<br>
-				<br>
-				<div align="center">
-					<a type="button" href="/login/login.jsp" class="btn btn-primary cs-btn">Admin Member</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12  wow fadeInRight animated">
+                    <form class="contact-form" id="contactusInsert" action="/contactusInsert" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                                    maxlength="30">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                                    maxlength="30">
+                                <input type="text" class="form-control" id="subject" name="subject"
+                                    placeholder="Subject" maxlength="40">
+                            </div>
+                            <div class="col-md-6">
+                                <textarea class="form-control" id="message" name="message" rows="25" cols="10"
+                                    placeholder="Message Texts..." maxlength="150"></textarea>
+                                <button type="submit" id="submit" class="btn btn-default submit-btn form_submit">SEND
+                                    MESSAGE</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="work-with   wow fadeInUp animated">
+                        <h3>looking forward to hearing from you!</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="col-md-6 ">
+                <img src="images/SUPER02.png" style="width: 250px; height: 200px;" alt="">
+            </div>
+            <div class="col-md-6 ">
+                <div class="copyright_text   wow fadeInUp animated">
+                    <p>
+                        &copy; SuperEsl 2017.All Right Reserved By <a href="#" target="_blank">JM ™</a>
+                    </p>
+                    <p>Made with love for creative people.</p>
+                    <br>
+                    <br>
+                    <div align="center">
+                        <a type="button" href="/login/login.jsp" class="btn btn-primary cs-btn">Admin Member</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.nicescroll.js"></script>
-<script src="js/owl.carousel.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/script.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>
