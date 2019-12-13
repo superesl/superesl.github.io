@@ -516,6 +516,17 @@ letter-spacing: 0px;
     text-align: center;
 }
 
+
+.info_text{
+	padding-top: 0px;	
+}
+.info_text p{
+	color: #636363;
+	font-size: 14px;
+	margin-bottom: 0px;
+	letter-spacing: 0px;
+}
+
 #leftSLideBar {
     left: -1px;
     position: fixed;
